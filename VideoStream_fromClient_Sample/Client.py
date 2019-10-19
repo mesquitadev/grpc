@@ -10,11 +10,6 @@ import base64
 import sys
 
 # ============================================================
-# class
-# ============================================================
-
-
-# ============================================================
 # property
 # ============================================================
 cap = cv2.VideoCapture(0)
@@ -27,27 +22,29 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 # ============================================================
 def Request(frame):
     # print("origin size : ", sys.getsizeof(gray))
+    # ret, buf = cap.read('.jpg', frame)
     ret, buf = cv2.imencode('.jpg', frame)
 
     if ret != 1:
         return
 
+    #Criptografa para Base64
     # encode to base64
     b64e = base64.b64encode(buf)
     # print("base64 encode size : ", sys.getsizeof(b64e))
 
+    #Envia a request para o server
     yield Datas_pb2.Request(datas=b64e)
 
 
 # ====================
 def run():
-    channel = grpc.insecure_channel('localhost:50051')
+    channel = grpc.insecure_channel('192.168.1.12:50051')
     stub = Datas_pb2_grpc.MainServerStub(channel)
 
     while True:
 
         try:
-
             ret, frame = cap.read()
             if ret != 1:
                 continue
@@ -64,12 +61,6 @@ def run():
         except grpc.RpcError as e:
             print(e.details())
         # break
-
-
-# ============================================================
-# Awake
-# ============================================================
-
 
 # ============================================================
 # main
