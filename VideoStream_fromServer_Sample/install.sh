@@ -7,8 +7,8 @@ echo "#==========================================="
 echo "Atualizando Repositórios..."
 sudo apt update
 echo "Instalando Libraries..."
-sudo apt install libopencv-dev
-sudo apt install python-opencv
+sudo apt install libopencv-dev -y
+sudo apt install python-opencv -y
 echo "Criando venv"
 virtualenv venv
 echo "Ativando Venv..."
