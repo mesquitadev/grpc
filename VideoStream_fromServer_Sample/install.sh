@@ -13,7 +13,7 @@ echo ""
 echo "Instalando Libraries..."
 sudo apt install libopencv-dev -y
 sudo apt install python-opencv -y
-sudo apt install python-pip -y
+sudo apt install python3-pip -y
 echo ""
 echo ""
 echo ""
