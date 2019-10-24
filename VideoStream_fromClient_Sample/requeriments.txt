@@ -6,7 +6,7 @@ grpcio-tools==1.24.1
 idna==2.8
 numpy==1.17.3
 opencv-python==4.1.1.26
-Pillow==6.2.0
+Pillow==6.2.0guit
 protobuf==3.10.0
 PySimpleGUI==4.4.1
 requests==2.22.0
