@@ -9,6 +9,11 @@ sudo apt update
 echo "Instalando Libraries..."
 sudo apt install libopencv-dev
 sudo apt install python-opencv
+echo "Criando venv"
+virtualenv venv
+echo "Ativando Venv..."
+cd venv
+bin/activate
 echo "Instalando libs Python3"
 sudo python3 -m pip install grpcio grpcio-tools scikit-video
-sudo python3 -m pip install requeriments.txt
+sudo python3 -m pip install -r requeriments.txt
