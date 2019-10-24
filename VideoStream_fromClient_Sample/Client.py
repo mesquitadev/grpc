@@ -16,7 +16,6 @@ cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-
 # ============================================================
 # functions
 # ============================================================
@@ -36,10 +35,9 @@ def Request(frame):
     #Envia a request para o server
     yield Datas_pb2.Request(datas=b64e)
 
-
 # ====================
 def run():
-    channel = grpc.insecure_channel('192.168.1.12:50051')
+    channel = grpc.insecure_channel('34.95.189.226:50051')
     stub = Datas_pb2_grpc.MainServerStub(channel)
 
     while True:
